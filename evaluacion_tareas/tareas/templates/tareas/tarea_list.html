@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Gestor de Tareas</h1>
+    <a href="{% url 'tareas:create' %}">Nueva Tarea</a>
+    <ul>
+        {% for tarea in tareas %}
+        <li>
+            <a href="{% url 'tareas:detail' tarea.pk %}">{{ tarea.titulo }}</a>
+            - Prioridad: {{ tarea.prioridad }}
+            - Vigente: {{ tarea.vigente }}
+        </li>
+        {% empty %}
+        <li>No hay tareas disponibles.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

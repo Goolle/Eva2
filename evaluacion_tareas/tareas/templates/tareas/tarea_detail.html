@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ tarea.titulo }}</title>
+</head>
+<body>
+    <h1>{{ tarea.titulo }}</h1>
+    <p>Descripción: {{ tarea.descripcion }}</p>
+    <p>Prioridad: {{ tarea.prioridad }}</p>
+    <p>Vigente: {{ tarea.vigente }}</p>
+    <p>Fecha de creación: {{ tarea.fecha_creacion }}</p>
+    <p>Fecha límite: {{ tarea.fecha_limite|default:"No definida" }}</p>
+    <a href="{% url 'tareas:update' tarea.pk %}">Editar</a> |
+    <a href="{% url 'tareas:delete' tarea.pk %}">Eliminar</a> |
+    <a href="{% url 'tareas:list' %}">Volver</a>
+</body>
+</html>
